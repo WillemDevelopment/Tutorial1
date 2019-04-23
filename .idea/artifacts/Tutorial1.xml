@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Tutorial1">
+    <output-path>$PROJECT_DIR$/../../Development/YTTutorials</output-path>
+    <root id="archive" name="Tutorial1.jar">
+      <element id="module-output" name="Tutorial1" />
+    </root>
+  </artifact>
+</component>
