@@ -1,7 +1,6 @@
 name: Tutorial1
 version: ${project.version}
 main: net.noodles.tutorial1.main.Main
-api-version: 1.13
 authors: [Noodles]
 description: Plugin tutorial 1
 website: https://bghddevelopment.com
