@@ -24,6 +24,8 @@ public final class Main extends JavaPlugin {
 
     public void registerCommands() {
         getCommand("tutorial").setExecutor(new Command());
+        getCommand("fly").setExecutor(new FlyCommand());
+
     }
 
     public void registerEvents() {

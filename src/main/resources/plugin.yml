@@ -6,3 +6,4 @@ description: Plugin tutorial 1
 website: https://bghddevelopment.com
 commands:
   tutorial:
+  fly:
