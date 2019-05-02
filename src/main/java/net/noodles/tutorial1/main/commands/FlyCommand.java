@@ -1,4 +1,4 @@
-package net.noodles.tutorial1.main;
+package net.noodles.tutorial1.main.commands;
 
 import com.sun.xml.internal.ws.resources.SenderMessages;
 import org.bukkit.ChatColor;
@@ -30,14 +30,12 @@ public class FlyCommand implements CommandExecutor {
                 player.setFlying(false);
                 player.sendMessage(ChatColor.RED + "You have disabled fly!");
                 player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 1, 1);
-                player.getActivePotionEffects().clear();
             } else {
                 player.setAllowFlight(true);
                 player.setFlying(true);
                 player.sendMessage(ChatColor.GREEN + "You have enabled fly!");
                 player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 1, 1);
                 player.getActivePotionEffects().clear();
-                player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 100000000, 1));
             }
         }
         return false;

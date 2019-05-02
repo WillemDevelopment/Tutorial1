@@ -1,12 +1,14 @@
-package net.noodles.tutorial1.main;
+package net.noodles.tutorial1.main.events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 
-public class BlockEvents implements Listener {
+public class Events implements Listener {
 
 
     @EventHandler
@@ -22,5 +24,15 @@ public class BlockEvents implements Listener {
         if (!p.hasPermission("blockbreak.use"))
         e.setCancelled(true);
     }
+
+    @EventHandler
+    public void PlayerEntityDamage(EntityDamageByEntityEvent e) {
+        if (e.getDamager() instanceof Player) {
+            if (e.getEntity() instanceof Player) {
+                e.setCancelled(true);
+            }
+        }
+    }
+
 
 }

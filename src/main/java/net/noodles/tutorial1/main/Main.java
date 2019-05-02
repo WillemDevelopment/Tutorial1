@@ -1,10 +1,10 @@
 package net.noodles.tutorial1.main;
 
-import org.bukkit.event.Listener;
+import net.noodles.tutorial1.main.commands.TutorialCommand;
+import net.noodles.tutorial1.main.commands.FlyCommand;
+import net.noodles.tutorial1.main.events.Events;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Arrays;
 
 public final class Main extends JavaPlugin {
 
@@ -23,14 +23,14 @@ public final class Main extends JavaPlugin {
 
 
     public void registerCommands() {
-        getCommand("tutorial").setExecutor(new Command());
+        getCommand("tutorial").setExecutor(new TutorialCommand());
         getCommand("fly").setExecutor(new FlyCommand());
 
     }
 
     public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(new BlockEvents(), this);
+        pm.registerEvents(new Events(), this);
     }
 
 }
