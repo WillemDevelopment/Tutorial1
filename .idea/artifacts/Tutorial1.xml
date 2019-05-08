@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/../../Development/YTTutorials</output-path>
     <root id="archive" name="Tutorial1.jar">
       <element id="module-output" name="Tutorial1" />
+      <element id="extracted-dir" path="C:/SharedProjects/ScoreboardLib.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
