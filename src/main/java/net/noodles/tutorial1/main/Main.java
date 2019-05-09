@@ -1,6 +1,7 @@
 package net.noodles.tutorial1.main;
 
 import me.tigerhix.lib.scoreboard.ScoreboardLib;
+import net.noodles.tutorial1.main.NPC.NPCManager;
 import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.commands.FlyCommand;
 import net.noodles.tutorial1.main.events.Events;
@@ -10,12 +11,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
+
+    private static NPCManager npcManager;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
         registerCommands();
         registerEvents();
         ScoreboardLib.setPluginInstance(this);
+        this.npcManager = new NPCManager(this);
     }
 
     @Override
