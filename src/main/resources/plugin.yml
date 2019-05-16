@@ -2,7 +2,7 @@ name: Tutorial1
 version: ${project.version}
 main: net.noodles.tutorial1.main.Main
 authors: [Noodles]
-description: Plugin tutorial 1
+description: Plugin Tutorial Video Plugin
 website: https://bghddevelopment.com
 commands:
   tutorial:
