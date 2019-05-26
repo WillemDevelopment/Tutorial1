@@ -7,6 +7,7 @@ import net.noodles.tutorial1.main.commands.FlyCommand;
 import net.noodles.tutorial1.main.events.Events;
 import net.noodles.tutorial1.main.events.JoinScoreboardEvent;
 import net.noodles.tutorial1.main.events.LandMines;
+import net.noodles.tutorial1.main.events.VIPLogin;
 import org.bukkit.block.Block;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -53,7 +54,7 @@ public final class Main extends JavaPlugin {
         pm.registerEvents(new Events(), this);
         pm.registerEvents(new JoinScoreboardEvent(), this);
         pm.registerEvents(new LandMines(), this);
-
+        pm.registerEvents(new VIPLogin(), this);
     }
 
     public static Main getLandmines() {
