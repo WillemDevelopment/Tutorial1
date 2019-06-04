@@ -9,9 +9,14 @@ import net.noodles.tutorial1.main.events.JoinScoreboardEvent;
 import net.noodles.tutorial1.main.events.LandMines;
 import net.noodles.tutorial1.main.events.VIPLogin;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public final class Main extends JavaPlugin {
@@ -34,6 +39,7 @@ public final class Main extends JavaPlugin {
         ScoreboardLib.setPluginInstance(this);
         this.npcManager = new NPCManager(this);
         Main.Landmines = this;
+        createFiles();
     }
 
     @Override
@@ -59,6 +65,28 @@ public final class Main extends JavaPlugin {
 
     public static Main getLandmines() {
         return Main.Landmines;
+    }
+
+    private File configf;
+    private FileConfiguration config;
+
+    private void createFiles() {
+        configf = new File(getDataFolder(), "config.yml");
+
+        if(!configf.exists()) {
+            configf.getParentFile().mkdirs();
+            saveResource("config.yml", false);
+        }
+        config = new YamlConfiguration();
+
+        try {
+            config.load(configf);
+
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
