@@ -1,5 +1,6 @@
 package net.noodles.tutorial1.main.commands;
 
+import net.noodles.tutorial1.main.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandExecutor;
@@ -22,7 +23,8 @@ public class TutorialCommand implements CommandExecutor {
                     player.getInventory().addItem(bricks, diamond);
                     player.sendMessage(ChatColor.GREEN + "You got free stuff!");
                 } else {
-                    player.sendMessage(ChatColor.RED + "YOU DO NOT HAVE PERMISSION TO RUN THIS COMMAND!");
+                    //player.sendMessage(ChatColor.RED + "YOU DO NOT HAVE PERMISSION TO RUN THIS COMMAND!");
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString("NoPermission")));
                 }
             }
         }

@@ -24,6 +24,7 @@ public final class Main extends JavaPlugin {
 
     private static NPCManager npcManager;
     private static Main Landmines;
+    public static Main plugin;
     public ArrayList<Block> mines;
 
 
@@ -39,6 +40,7 @@ public final class Main extends JavaPlugin {
         ScoreboardLib.setPluginInstance(this);
         this.npcManager = new NPCManager(this);
         Main.Landmines = this;
+        plugin = this;
         createFiles();
     }
 
