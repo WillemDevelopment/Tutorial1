@@ -35,13 +35,26 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        Logger.log(Logger.LogLevel.OUTLINE, "*********************");
+        Logger.log(Logger.LogLevel.INFO, "Plugin is loading...");
+        Logger.log(Logger.LogLevel.INFO, "Commands are loading...");
         registerCommands();
+        Logger.log(Logger.LogLevel.INFO, "Commands are loaded!");
+        Logger.log(Logger.LogLevel.INFO, "Events are loading...");
         registerEvents();
+        Logger.log(Logger.LogLevel.INFO, "Events are loaded!");
+        Logger.log(Logger.LogLevel.INFO, "Managers are loading...");
         ScoreboardLib.setPluginInstance(this);
         this.npcManager = new NPCManager(this);
         Main.Landmines = this;
         plugin = this;
+        Logger.log(Logger.LogLevel.INFO, "Managers are loaded!");
+        Logger.log(Logger.LogLevel.INFO, "Config are loading...");
         createFiles();
+        Logger.log(Logger.LogLevel.INFO, "Config is loaded!");
+        Logger.log(Logger.LogLevel.SUCCESS, "The plugin has loaded correctly!");
+        Logger.log(Logger.LogLevel.OUTLINE, "*********************");
+
     }
 
     @Override
