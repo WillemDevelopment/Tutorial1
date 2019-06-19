@@ -1,5 +1,6 @@
 package net.noodles.tutorial1.main.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -10,6 +11,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -41,8 +43,6 @@ public class Events implements Listener {
     }
 
 
-
-
     @EventHandler
     public void onFall(EntityDamageEvent e) {
         if(e.getCause() == EntityDamageEvent.DamageCause.FALL) {
@@ -61,6 +61,15 @@ public class Events implements Listener {
             p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 15, 9));
         } else {
             return;
+        }
+    }
+
+    @EventHandler
+    public void antiTalk(AsyncPlayerChatEvent e) {
+        Player p = e.getPlayer();
+        if (!p.hasPermission("chat.use")) {
+            e.setCancelled(true);
+            p.sendMessage(ChatColor.RED + "You are not allowed to speak on this server!");
         }
     }
 
