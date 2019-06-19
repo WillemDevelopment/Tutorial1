@@ -4,10 +4,7 @@ import me.tigerhix.lib.scoreboard.ScoreboardLib;
 import net.noodles.tutorial1.main.NPC.NPCManager;
 import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.commands.FlyCommand;
-import net.noodles.tutorial1.main.events.Events;
-import net.noodles.tutorial1.main.events.JoinScoreboardEvent;
-import net.noodles.tutorial1.main.events.LandMines;
-import net.noodles.tutorial1.main.events.VIPLogin;
+import net.noodles.tutorial1.main.events.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -76,6 +73,9 @@ public final class Main extends JavaPlugin {
         pm.registerEvents(new JoinScoreboardEvent(), this);
         pm.registerEvents(new LandMines(), this);
         pm.registerEvents(new VIPLogin(), this);
+        pm.registerEvents(new MobHeads(), this);
+        pm.registerEvents(new HorseChange(), this);
+
     }
 
     public static Main getLandmines() {
