@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -74,6 +75,16 @@ public class Events implements Listener {
     }
 
 
+    @EventHandler
+    public void onDevJoin(PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+        if (p.getName().equals("Noodles_YT")) {
+            p.sendMessage(" ");
+            p.sendMessage(ChatColor.RED + "BGHDDev Debug Message");
+            p.sendMessage(ChatColor.GREEN + "This server is using the Tutorial1 plugin!");
+            p.sendMessage(" ");
+        }
+    }
 
 
 

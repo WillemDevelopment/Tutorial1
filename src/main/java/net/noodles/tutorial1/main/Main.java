@@ -2,8 +2,8 @@ package net.noodles.tutorial1.main;
 
 import me.tigerhix.lib.scoreboard.ScoreboardLib;
 import net.noodles.tutorial1.main.NPC.NPCManager;
-import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.commands.FlyCommand;
+import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.events.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -11,6 +11,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +44,7 @@ public final class Main extends JavaPlugin {
         Logger.log(Logger.LogLevel.INFO, "Managers are loading...");
         ScoreboardLib.setPluginInstance(this);
         this.npcManager = new NPCManager(this);
+        MetricsLite metrics = new MetricsLite(this);
         Main.Landmines = this;
         plugin = this;
         Logger.log(Logger.LogLevel.INFO, "Managers are loaded!");
@@ -82,21 +84,36 @@ public final class Main extends JavaPlugin {
         return Main.Landmines;
     }
 
-    private File configf;
-    private FileConfiguration config;
+
+    private File configf, reasonsf, helpf;
+    private FileConfiguration config, reasons, help;
+
 
     private void createFiles() {
         configf = new File(getDataFolder(), "config.yml");
+        reasonsf = new File(getDataFolder(), "reasons.yml");
+        helpf = new File(getDataFolder(), "help.yml");
 
         if(!configf.exists()) {
             configf.getParentFile().mkdirs();
             saveResource("config.yml", false);
         }
+        if(!reasonsf.exists()) {
+            reasonsf.getParentFile().mkdirs();
+            saveResource("reasons.yml", false);
+        }
+        if(!helpf.exists()) {
+            helpf.getParentFile().mkdirs();
+            saveResource("help.yml", false);
+        }
         config = new YamlConfiguration();
+        reasons = new YamlConfiguration();
+        help = new YamlConfiguration();
 
         try {
             config.load(configf);
-
+            reasons.load(reasonsf);
+            help.load(helpf);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
