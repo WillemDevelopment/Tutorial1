@@ -77,7 +77,7 @@ public final class Main extends JavaPlugin {
         pm.registerEvents(new VIPLogin(), this);
         pm.registerEvents(new MobHeads(), this);
         pm.registerEvents(new HorseChange(), this);
-
+        pm.registerEvents(new JoinMessage(), this);
     }
 
     public static Main getLandmines() {
