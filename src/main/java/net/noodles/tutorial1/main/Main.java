@@ -3,6 +3,7 @@ package net.noodles.tutorial1.main;
 import me.tigerhix.lib.scoreboard.ScoreboardLib;
 import net.noodles.tutorial1.main.NPC.NPCManager;
 import net.noodles.tutorial1.main.commands.FlyCommand;
+import net.noodles.tutorial1.main.commands.TPCommand;
 import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.events.*;
 import org.bukkit.block.Block;
@@ -66,6 +67,7 @@ public final class Main extends JavaPlugin {
     public void registerCommands() {
         getCommand("tutorial").setExecutor(new TutorialCommand());
         getCommand("fly").setExecutor(new FlyCommand());
+        getCommand("tp").setExecutor(new TPCommand());
 
     }
 
