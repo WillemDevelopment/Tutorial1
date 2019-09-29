@@ -1,5 +1,6 @@
 package net.noodles.tutorial1.main.commands;
 
+import net.noodles.tutorial1.main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;

@@ -25,7 +25,9 @@ public class Events implements Listener {
         Player p = e.getPlayer();
         if (!p.hasPermission("blockplace.use"))
         e.setCancelled(true);
+
     }
+
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
@@ -41,6 +43,12 @@ public class Events implements Listener {
                 e.setCancelled(true);
             }
         }
+    }
+
+
+    @EventHandler
+    public void replaceText(AsyncPlayerChatEvent e) {
+    e.setMessage(e.getMessage().replaceAll("cow", ChatColor.BLUE + "mooooo"));
     }
 
 
