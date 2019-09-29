@@ -48,7 +48,9 @@ public class Events implements Listener {
 
     @EventHandler
     public void replaceText(AsyncPlayerChatEvent e) {
-    e.setMessage(e.getMessage().replaceAll("cow", ChatColor.BLUE + "mooooo"));
+        if (e.getPlayer().hasPermission("chat.cow")) {
+            e.setMessage(e.getMessage().replaceAll("cow", ChatColor.BLUE + "mooooo"));
+        }
     }
 
 
