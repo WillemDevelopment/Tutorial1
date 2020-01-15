@@ -7,6 +7,7 @@ import net.noodles.tutorial1.main.commands.LobbyCommand;
 import net.noodles.tutorial1.main.commands.TPCommand;
 import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.events.*;
+import net.noodles.tutorial1.main.utils.UpdateChecker;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -56,6 +57,14 @@ public final class Main extends JavaPlugin {
         Logger.log(Logger.LogLevel.SUCCESS, "The plugin has loaded correctly!");
         Logger.log(Logger.LogLevel.OUTLINE, "*********************");
         getServer().getMessenger().registerOutgoingPluginChannel(this, "Bungeecord");
+        new UpdateChecker(this, 53460).getLatestVersion(version -> {
+            if(this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                Logger.log(Logger.LogLevel.SUCCESS, "Plugin is up to date. ");
+            } else {
+                Logger.log(Logger.LogLevel.ERROR, "Plugin has an update. ");
+            }
+
+        });
 
     }
 
