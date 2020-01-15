@@ -3,6 +3,7 @@ package net.noodles.tutorial1.main;
 import me.tigerhix.lib.scoreboard.ScoreboardLib;
 import net.noodles.tutorial1.main.NPC.NPCManager;
 import net.noodles.tutorial1.main.commands.FlyCommand;
+import net.noodles.tutorial1.main.commands.LobbyCommand;
 import net.noodles.tutorial1.main.commands.TPCommand;
 import net.noodles.tutorial1.main.commands.TutorialCommand;
 import net.noodles.tutorial1.main.events.*;
@@ -54,6 +55,7 @@ public final class Main extends JavaPlugin {
         Logger.log(Logger.LogLevel.INFO, "Config is loaded!");
         Logger.log(Logger.LogLevel.SUCCESS, "The plugin has loaded correctly!");
         Logger.log(Logger.LogLevel.OUTLINE, "*********************");
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "Bungeecord");
 
     }
 
@@ -68,6 +70,7 @@ public final class Main extends JavaPlugin {
         getCommand("tutorial").setExecutor(new TutorialCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("tp").setExecutor(new TPCommand());
+        getCommand("lobby").setExecutor(new LobbyCommand());
 
     }
 
@@ -88,6 +91,9 @@ public final class Main extends JavaPlugin {
         return Main.Landmines;
     }
 
+    public static Main getPlugin() {
+        return plugin;
+    }
 
     private File configf, reasonsf, helpf;
     private FileConfiguration config, reasons, help;
