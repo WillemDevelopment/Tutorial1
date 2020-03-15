@@ -6,7 +6,7 @@
 
     <groupId>net.noodles.tutorial1</groupId>
     <artifactId>Main</artifactId>
-    <version>0.15</version>
+    <version>3.4</version>
     <packaging>jar</packaging>
 
     <name>Tutorial1</name>

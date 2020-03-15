@@ -4,7 +4,7 @@
     <root id="archive" name="Tutorial1.jar">
       <element id="module-output" name="Tutorial1" />
       <element id="extracted-dir" path="C:/SharedProjects/ScoreboardLib.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="C:/SharedProjects/npclib-plugin-1.4.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Depends/npclib-plugin-2.4.1-SNAPSHOT (1).jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
