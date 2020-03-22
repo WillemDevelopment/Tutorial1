@@ -18,7 +18,7 @@ public class BlockDebug implements Listener {
         Location l = p.getLocation();
         l.add(0, -0.5, 0);
         Block b = l.getBlock();
-        p.sendMessage(ChatColor.RED + "[Debug] Standing on " + b + "Data Value " + b.getData());
+        //p.sendMessage(ChatColor.RED + "[Debug] Standing on " + b + "Data Value " + b.getData());
     }
 
 }
